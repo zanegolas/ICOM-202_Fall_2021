@@ -8,6 +8,7 @@ SndBuf loclick => Echo delayLead => master;
 SndBuf hiclick => NRev verb => Pan2 clickPan => master;
 Bowed swell => verb => master;
 Bowed augment => delayLead => verb => master;
+SinOsc sineBass => ADSR bass => master;
 
 //set group gain levels
 .9 => master.gain;
@@ -17,6 +18,10 @@ Bowed augment => delayLead => verb => master;
 351::ms => delayLead.delay;
 702::ms => delayLead.max; 
 .10 => delayLead.mix;
+
+//set sine parameters
+bass.set(117::ms, 351::ms, 0., 5::ms);
+Std.mtof(33) => sineBass.freq;
 
 //drum gain
 .5 => hiclick.gain;
@@ -115,6 +120,7 @@ fun void playSwell()
     if (beat == 12){
         Std.mtof(rootNote[bar]) => swell.freq;
         swell.noteOn(1.0);
+        bass.keyOn(1);
     }
     
     if (beat == 0){
@@ -130,6 +136,7 @@ fun void playQuick()
         Std.mtof(61) => swell.freq;
         Std.mtof(56) => augment.freq;
         swell.noteOn(1.0);
+        bass.keyOn(1);
     }
     if (beat == 14){
         swell.noteOff(1.0);
