@@ -1,9 +1,7 @@
 //initialize.ck
-<<< "Jazz Band by Zane Golas" >>>;
+<<< "Drum Circle by Zane Golas" >>>;
 
-//SOMETHING SUPER DUPER IMPORTANT THAT WE AREN"T COOL ENOUGH TO LEARN YET
-
-
+init("conductor.ck");
 init("score.ck");
 
 //////////////////////////////////////////////////////FUNCTIONS//////////////////////////////////////////////////////////////////////////

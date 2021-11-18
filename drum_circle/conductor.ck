@@ -1,4 +1,4 @@
-// Written By: Zane Golas
+// Written By: Zane Golas (2021)
 
 public class Conductor
 {
@@ -8,7 +8,7 @@ public class Conductor
     dur timeTable[0];//stores float value in MS for note values between 1/32 and whole
     static dur quarterNote, eighthNote, sixteenthNote, thirtysecondNote, halfNote, wholeNote;
     0::second => static dur globalCount;//global count in seconds to return beat values
-    setBPM(120.0);//sets default value to 120 bpm
+    setBPM(128.0);//sets default value to 120 bpm
     <<< "Session Conductor Initialized With Default Values" >>>; //provide status on load
     
     fun void updateTimeTable ( float bpmUpdate )//function to recalculate note duration whenever new BPM is received
@@ -136,40 +136,6 @@ public class Conductor
 
     
 }
-
-///////////////DEMO
-
-//Create Conductor object named "z"
-Conductor z;
-
-//Change bpm from default 120 to 128
-z.setBPM(128);
-
-//Find out what time in the future we will have gone tthrough 2 bars
-z.lookAhead(2,"bar") => time end;
-
-//play aka move time forward by two bars
-z.play(2, "bar");
-
-z.count(4, "1/4");
-z.countZero(4, "1/4");
-z.play("1/4");
-
-z.count(4, "1/4");
-z.countZero(4, "1/4");
-z.play("1/4");
-
-z.count(4, "1/4");
-z.countZero(4, "1/4");
-z.play("1/4");
-
-z.count(4, "1/4");
-z.countZero(4, "1/4");
-z.play("1/4");
-
-z.count(4, "1/4");
-z.countZero(4, "1/4");
-z.play("1/4");
 
 
 
